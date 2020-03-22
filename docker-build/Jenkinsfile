@@ -16,7 +16,7 @@ pipeline {
                         doGenerateSubmoduleConfigurations: false,
                         extensions                       : [],
                         submoduleCfg                     : [],
-                        userRemoteConfigs                : [[url: '${GIT_URL}']]
+                        userRemoteConfigs                : [[credentialsId: 'gitlab-djkim', url: '${GIT_URL}']]
                 ]
             )
         println "Git CheckOut End"
