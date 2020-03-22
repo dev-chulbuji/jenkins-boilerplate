@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-    string(name: 'GIT_URL', defaultValue: 'http://dj.gitlab.com/dj.kim/flask-eve-boilerplate.git')
+    string(name: 'GIT_URL', defaultValue: 'http://docker.for.mac.host.internal/dj.kim/flask-eve-boilerplate.git')
     string(name: 'GIT_BRANCH', defaultValue: 'master')
   }
 
