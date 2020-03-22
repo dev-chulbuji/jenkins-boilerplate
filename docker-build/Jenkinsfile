@@ -16,7 +16,7 @@ pipeline {
                         doGenerateSubmoduleConfigurations: false,
                         extensions                       : [],
                         submoduleCfg                     : [],
-                        userRemoteConfigs                : [[url: '${GIT_URL']]
+                        userRemoteConfigs                : [[url: '${GIT_URL}']]
                 ]
             )
         println "Git CheckOut End"
