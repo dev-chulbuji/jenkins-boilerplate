@@ -1,12 +1,29 @@
 pipeline {
-  environment {
-    registry = "ladmusiciankim/jenkinstest"
-    registryCredential = 'dockerhub'
-  }
   agent any
+  parameters {
+    string(name: 'GIT_URL', defaultValue: 'http://dj.gitlab.com/dj.kim/flask-eve-boilerplate.git')
+    string(name: 'GIT_BRANCH', defaultValue: 'master')
+  }
+
   stages {
-    stage('Building image') {
+    stage('Git Checkout') {
       steps{
+          println "Git CheckOut Started"
+            checkout(
+                [
+                        $class                           : 'GitSCM',
+                        branches                         : [[name: '${GIT_BRANCH}']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions                       : [],
+                        submoduleCfg                     : [],
+                        userRemoteConfigs                : [[url: '${GIT_URL']]
+                ]
+            )
+        println "Git CheckOut End"
+      }
+    }
+    stage('Docker Build') {
+      steps {
         script {
           echo "Build Test"
         }
